@@ -1,0 +1,37 @@
+# Virtualenv
+venv
+.Python
+
+# Python Packages
+*.egg
+*.egg-info
+build
+sdist
+develop-eggs
+.installed.cfg
+
+# Pip Installer Log
+pip-log.txt
+
+# Unit test / coverage
+.cache
+.coverage
+.coverage_html
+.tox
+
+# Mac OS X
+.DS_Store
+
+# Generated files
+*.[oa]
+*.py[co]
+*.rbc
+static-collected/*
+
+# Development database
+dev.sqlite
+
+# SASS
+.sass-cache
+*/static/auto
+
