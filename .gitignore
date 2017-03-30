@@ -25,6 +25,7 @@ pip-log.txt
 # Generated files
 *.[oa]
 *.py[co]
+*__pycache__
 *.rbc
 static-collected/*
 
