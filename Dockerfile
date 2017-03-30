@@ -2,19 +2,26 @@ FROM python:3.5
 
 WORKDIR /app
 
-RUN apt-get update
-RUN apt-get install -y gcc make g++ build-essential
+# Install essentials
+RUN apt-get update \
+    && apt-get install -y gcc make g++ build-essential
 
 # Procfile handler
-RUN pip3 install honcho==0.7.1
+RUN pip3 install --upgrade pip honcho==0.7.1
 
-# Install python requirements
-ADD requirements.txt /app/requirements.txt
-RUN pip3 install --upgrade pip
-RUN pip3 install --upgrade -r requirements.txt
+# Install the main app on /app, install APT aptfile and Python requirements.txt
+WORKDIR /app
 
-# Install the main app on /app
 ADD . /app
+ONBUILD ADD . /app
+
+# Handles apt install via requirements.apt
+RUN xargs apt-get install < requirements.apt
+ONBUILD RUN xargs apt-get install < requirements.apt
+
+# Install Python packages
+RUN pip3 install --upgrade -r requirements.txt
+ONBUILD RUN pip3 install --upgrade -r requirements.txt
 
 # Default service port is 5000
 ENV PORT=5000
