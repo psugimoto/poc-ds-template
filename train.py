@@ -20,7 +20,7 @@ class Trainer:
         print('Ok')
 
     def evaluate(self):
-        return "Precision: {}".format(self.model.score(self.data_test, self.labels_test))
+        return self.model.score(self.data_test, self.labels_test)
 
     def save(self):
         joblib.dump(self.model, 'model.pkl')

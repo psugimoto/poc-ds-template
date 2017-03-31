@@ -41,7 +41,7 @@ def train():
 def evaluate():
     global trainer
     try:
-        return trainer.evaluate()
+        return jsonify(**{'precision': trainer.evaluate()})
     except AttributeError:
         return 'Model is empty'
 
