@@ -1,4 +1,7 @@
-FROM heroku/cedar:14
+FROM getninjas/debian
+
+RUN apt-get update -y \
+    && apt-get install -y curl tar zip gzip build-essential
 
 RUN curl --location --silent https://github.com/gliderlabs/herokuish/releases/download/v0.3.27/herokuish_0.3.27_linux_x86_64.tgz \
 		  | tar -xzC /bin
