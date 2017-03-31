@@ -54,7 +54,7 @@ def predict():
     return jsonify(predicted=TARGETS[model.predict(data)[0]])
 
 if __name__ == "__main__":
-    train()
     load_model()
+    trainer = Trainer(model)
     app.run()
 
