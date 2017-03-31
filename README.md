@@ -7,7 +7,7 @@ The app has 5 endpoints:
 
 - /evaluate - returns the precision of the model on a test dataset
 
-- /predict - returns a prediction when the request contains a JSON with features
+- /predict - returns a prediction when the request contains a JSON with features. The prediction can be: Setosa, Versicolour or Virginica
 
             JSON example:
             {
