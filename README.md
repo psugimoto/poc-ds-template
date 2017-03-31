@@ -1,9 +1,5 @@
-The app has 5 endpoints:
-- /save  - persists the trained model (if it exists) in model.pkl
-
+The app has 3 endpoints:
 - /load - loads model.pkl into memory
-
-- /train - trains a model using the Iris dataset from sklearn
 
 - /evaluate - returns the precision of the model on a test dataset
 
