@@ -9,24 +9,15 @@ app = Flask(__name__)
 trainer = Trainer()
 model = None
 TARGETS = {0: 'Setosa',
-          1: 'Versicolour',
-          2: 'Virginica'}
-
-request_example = {
-    "sepal length": 5,
-    "sepal width": 3,
-    "petal length": 3,
-    "petal width": 1,
-}
+           1: 'Versicolour',
+           2: 'Virginica'}
 
 
-@app.route('/save')
 def save_model():
     global trainer
-    if trainer.model is not None:
-        trainer.save()
-    else:
-        raise AttributeError('Model is empty')
+    if trainer.model is None:
+        trainer.train()
+    trainer.save()
     return 'Model saved'
 
 
@@ -36,13 +27,10 @@ def load_model():
     try:
         model = joblib.load('model.pkl')
     except FileNotFoundError:
-        print('Model is empty, training one from scratch')
-        trainer.train()
-        model = trainer.model
+        return 'Model does not exist'
     return 'Model loaded'
 
 
-@app.route('/train')
 def train():
     global trainer
     trainer.train()
@@ -52,14 +40,21 @@ def train():
 @app.route('/evaluate')
 def evaluate():
     global trainer
-    return trainer.evaluate()
+    try:
+        return trainer.evaluate()
+    except AttributeError:
+        return 'Model is empty'
 
 
 @app.route('/predict')
 def predict():
     data = pd.Series(request.get_json())
+    if model is None:
+        load_model()
     return jsonify(predicted=TARGETS[model.predict(data)[0]])
 
 if __name__ == "__main__":
+    train()
+    load_model()
     app.run()
 
