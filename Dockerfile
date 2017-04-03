@@ -7,7 +7,7 @@ RUN apt-get update \
     && apt-get install -y gcc make g++ build-essential
 
 # Procfile handler
-RUN pip3 install --upgrade pip honcho==0.7.1
+RUN pip3 install --upgrade pip honcho==1.0.1
 
 # Install the main app on /app, install APT aptfile and Python requirements.txt
 WORKDIR /app
@@ -29,4 +29,5 @@ EXPOSE 5000
 
 # "Procfile" should define the process types available
 ENV PROCESS_TYPE=web
-CMD PYTHONUNBUFFERED=true honcho start $PROCESS_TYPE
+ENV ENV_FILE=.env
+CMD PYTHONUNBUFFERED=true honcho -e $ENV_FILE --no-prefix start $PROCESS_TYPE
