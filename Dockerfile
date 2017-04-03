@@ -34,4 +34,4 @@ EXPOSE 5000
 # "Procfile" should define the process types available
 ENV PROCESS_TYPE=web
 ENV ENV_FILE=.env
-CMD PYTHONUNBUFFERED=true honcho -e $ENV_FILE --no-prefix start $PROCESS_TYPE
+CMD PYTHONUNBUFFERED=true honcho -e $ENV_FILE start --no-prefix $PROCESS_TYPE
