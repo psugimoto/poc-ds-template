@@ -1,0 +1,14 @@
+[run]
+branch = True
+include =
+    ./*
+omit =
+    .*
+    venv/*
+    */tests*
+    */migrations/*
+    project/environments/*
+[report]
+#skip_covered = True
+[html]
+directory = .coverage_html
