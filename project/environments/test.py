@@ -1,6 +1,6 @@
 from .development import *
 
-print >> sys.stderr, "/!\ USING TEST ENVIRONMENT /!\ "
+print("/!\ USING TEST ENVIRONMENT /!\ ", file=sys.stderr)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
