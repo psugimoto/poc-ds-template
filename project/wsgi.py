@@ -17,5 +17,5 @@ application = get_wsgi_application()
 
 # Whitenoise: https://pypi.python.org/pypi/whitenoise
 # Serve static assets in a "safe" way on herokuish environments
-#from whitenoise.django import DjangoWhiteNoise
-#application = DjangoWhiteNoise(application)
+from whitenoise.django import DjangoWhiteNoise
+application = DjangoWhiteNoise(application)
