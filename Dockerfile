@@ -12,16 +12,20 @@ RUN pip3 install --upgrade pip honcho==1.0.1
 # Install the main app on /app, install APT aptfile and Python requirements.txt
 WORKDIR /app
 
-ADD . /app
-ONBUILD ADD . /app
-
 # Handles apt install via requirements.apt
+ADD ./requirements.apt /app/requirements.apt
+ONBUILD ADD ./requirements.apt /app/requirements.apt
 RUN xargs apt-get install < requirements.apt
 ONBUILD RUN xargs apt-get install < requirements.apt
 
 # Install Python packages
+ADD ./requirements.txt /app/requirements.txt
+ONBUILD ADD ./requirements.txt /app/requirements.txt
 RUN pip3 install --upgrade -r requirements.txt
 ONBUILD RUN pip3 install --upgrade -r requirements.txt
+
+ADD . /app
+ONBUILD ADD . /app
 
 # Default service port is 5000
 ENV PORT=5000
