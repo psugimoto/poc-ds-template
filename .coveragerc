@@ -2,8 +2,7 @@
 branch = True
 include =
     project/*
-    webapp/*
-    */*
+    ./*
 omit =
     .*
     venv/*
