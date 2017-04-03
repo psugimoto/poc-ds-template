@@ -2,23 +2,11 @@
 
 Estrutura recomendada para projetos de datascience em Python, quando usando Django.
 
-## Instalação no Heroku PaaS:
+## Estrutura do projeto:
 
-Este projeto usa Docker quando no Heroku. Se você não tem um ambiente Docker siga as instruções para seu sistema operacional disponíveis aqui: https://docs.docker.com/engine/installation/.
+Este projeto usa Docker e tem a estrutura inspirada no PaaS Heroku. Se você não tem um ambiente Docker siga as instruções para seu sistema operacional disponíveis aqui: https://docs.docker.com/engine/installation/.
 
-
-```
-$ heroku run -- django-admin migrate --noinput
-```
-Um mapa de São Paulo deve aparecer no centro da página. Hora de coletar Tweets! Vamos coletar 1000 tweets e guarda-los na base de dados:
-
-* Obs: Este ``-v2`` é a verbosidade dos logs. Retire para nenhum log ou aumente para ver mais
-
-```
-$ heroku run -- django-admin tweets_fetch --stop-count 1000 -v2
-```
-
-Ao fim, atualize a página em seu browser. Já deve existir um belo heatmap te esperando.
+**TBD: Árvore de arquivos e comentar arquivos importantes**
 
 
 ## Testando via Docker
@@ -65,7 +53,7 @@ Com um ambiente de desenvolvimento funcional, podemos rodar os testes localmente
 
 ```
 $ workon meuprojeto
-$ pip install -r requirements.txt
+$ pip install -r requirements-test.txt
 $ ./runtests.sh
 ```
 
