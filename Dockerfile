@@ -1,12 +1,13 @@
-FROM heroku/cedar:14
+FROM python:3.5
 
-RUN curl --location --silent https://github.com/gliderlabs/herokuish/releases/download/v0.3.27/herokuish_0.3.27_linux_x86_64.tgz \
-		  | tar -xzC /bin
+WORKDIR /app
 
-RUN /bin/herokuish buildpack install https://github.com/heroku/heroku-buildpack-python \
-	&& ln -s /bin/herokuish /build \
-	&& ln -s /bin/herokuish /start \
-	&& ln -s /bin/herokuish /exec
+# Install essentials
+RUN apt-get update \
+    && apt-get install -y gcc make g++ build-essential
+
+# Procfile handler
+RUN pip3 install --upgrade pip honcho==1.0.1
 
 # Install the main app on /app, install APT aptfile and Python requirements.txt
 WORKDIR /app
@@ -17,12 +18,14 @@ ONBUILD ADD ./requirements.apt /app/requirements.apt
 RUN xargs apt-get install < requirements.apt
 ONBUILD RUN xargs apt-get install < requirements.apt
 
+# Install Python packages
+ADD ./requirements.txt /app/requirements.txt
+ONBUILD ADD ./requirements.txt /app/requirements.txt
+RUN pip3 install --upgrade -r requirements.txt
+ONBUILD RUN pip3 install --upgrade -r requirements.txt
+
 ADD . /app
 ONBUILD ADD . /app
-
-# Install Python, requirements and everything else
-RUN /bin/herokuish buildpack build
-ONBUILD RUN /bin/herokuish buildpack build
 
 # Default service port is 5000
 ENV PORT=5000
@@ -30,4 +33,5 @@ EXPOSE $PORT
 
 # "Procfile" should define the process types available
 ENV PROCESS_TYPE=web
-CMD /start $PROCESS_TYPE
+ENV ENV_FILE=.env
+CMD PYTHONUNBUFFERED=true honcho -e $ENV_FILE start --no-prefix $PROCESS_TYPE
