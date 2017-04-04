@@ -26,7 +26,7 @@ ONBUILD RUN /bin/herokuish buildpack build
 
 # Default service port is 5000
 ENV PORT=5000
-EXPOSE 5000
+EXPOSE $PORT
 
 # "Procfile" should define the process types available
 ENV PROCESS_TYPE=web
