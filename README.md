@@ -31,9 +31,9 @@ Você não precisa do ambiente de desenvolvimento para rodar o projeto ou seus t
 
 ```
 $ docker-compose build web test shell
-$ docker-compose run --rm web     # Por padrão, na porta 8080
-$ docker-compose run --rm test    # Instala dependências de teste, testa e sai.
-$ docker-compose run --rm shell   # Shell Linux com a porta 8080 mapeada
+$ docker-compose up web     # Por padrão, na porta 8080
+$ docker-compose up test    # Instala dependências de teste, testa e sai.
+$ docker-compose run --rm shell   # Shell Linux na pasta do projeto.
 ```
 
 ## Instalação do ambiente de desenvolvimento
