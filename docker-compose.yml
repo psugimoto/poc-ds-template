@@ -1,0 +1,28 @@
+version: '3'
+services:
+  web:
+    build: ./
+    working_dir: /app
+    environment:
+      - PROCESS_TYPE=web
+      - PORT=8080
+    ports:
+      - '8080:8080'
+
+  test:
+    build: ./
+    working_dir: /app
+    environment:
+      - PROCESS_TYPE=test
+
+  # To get an interactive shell: docker-compose run --rm shell
+  shell:
+    build: ./
+    command: /bin/bash
+    working_dir: /app
+    environment:
+      - PORT=8080
+    ports:
+      - '8080:8080'
+    #volumes:
+    #  - '.:/app'
