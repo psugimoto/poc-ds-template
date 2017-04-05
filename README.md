@@ -49,8 +49,10 @@ $ PORT=8000 ./runserver.sh
 
 É necessário rodar o treino pela primeira vez para criar um modelo para que o serviço web fique funcional. Isso pode ser feito da seguinte forma:
 
+```
 $ workon meuprojeto
 $ ./runtraining.sh
+```
 
 Isso deve gerar um arquivo chamado model.pkl que contém um classificador KNN (http://scikit-learn.org/stable/modules/neighbors.html).
 
