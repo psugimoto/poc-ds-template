@@ -1,19 +1,3 @@
-The app has 3 endpoints:
-- /load - loads model.pkl into memory
-
-- /evaluate - returns the precision of the model on a test dataset
-
-- /predict - returns a prediction when the request contains a JSON with features. The prediction can be: Setosa, Versicolour or Virginica
-
-            JSON example:
-            {
-                "sepal length": 5,
-                "sepal width": 3,
-                "petal length": 3,
-                "petal width": 1,
-            }
-
-
 # GetNinjas Datascience Template - FLASK based
 
 Estrutura recomendada para projetos de datascience em Python, quando usando Flask. Há uma versão para Django também, no branch **``django``**.
@@ -61,7 +45,14 @@ Ative algumas variáveis de ambiente necessárias, configure a base de dados loc
 $ export $(cat .env)
 $ PORT=8000 ./runserver.sh
 ```
+## Treinando um modelo
 
+É necessário rodar o treino pela primeira vez para criar um modelo para que o serviço web fique funcional. Isso pode ser feito da seguinte forma:
+
+$ workon meuprojeto
+$ ./runtraining.sh
+
+Isso deve gerar um arquivo chamado model.pkl que contém um classificador KNN (http://scikit-learn.org/stable/modules/neighbors.html).
 
 ## Testando localmente
 
@@ -73,3 +64,20 @@ $ ./runtests.sh
 ```
 
 Isso também criará um relatório de cobertura em ``.coverage_html/index.html``
+
+## Funcionamento
+
+ O app tem 3 endpoints:
+- /load - carrega model.pkl em memória
+
+- /evaluate - retorna a precisão do modelo em um dataset de teste
+
+- /predict - retorna uma predição para uma request que contém um JSON com as features do modelo. A predição pode ser: Setosa, Versicolour or Virginica
+
+            Exemplo de JSON:
+            {
+                "sepal length": 5,
+                "sepal width": 3,
+                "petal length": 3,
+                "petal width": 1,
+            }
