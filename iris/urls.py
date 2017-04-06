@@ -20,5 +20,7 @@ from iris import views as iris_views
 
 
 urlpatterns = [
-    url(r'^', include('iris.urls')),
+    url(r'load$', iris_views.load),
+    url(r'predict$', iris_views.PredictView.as_view()),
+    url(r'evaluate$', iris_views.EvaluateView.as_view()),
 ]
