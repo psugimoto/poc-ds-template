@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 
-#from webapp import views as webapp_views
+from iris import views as iris_views
 
 
 urlpatterns = [
-    #url(r'^$', webapp_views.IndexView.as_view(), name='index'),
+    url(r'', include('iris.urls')),
 ]

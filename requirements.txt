@@ -2,7 +2,7 @@ future==0.16.0
 newrelic~=2.82.0.62
 uWSGI==2.0.15
 whitenoise~=3.3.0
-Django~=1.10.0
+Django~=1.11.0
 dj-database-url~=0.4.2
 django-annoying~=0.10.3
 django-extensions~=1.7.8
