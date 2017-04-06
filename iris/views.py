@@ -1,6 +1,8 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
+import json
+
 from django.views.generic import View
 from django.conf import settings
 from django.http import JsonResponse, HttpResponseBadRequest, HttpResponseNotAllowed
@@ -34,10 +36,11 @@ class EvaluateView(View):
 
 
 class PredictView(View):
-    def post(self, **kwargs):
+    def post(self, *args, **kwargs):
         if models.model is None:
             models.load_model()
 
+        data = json.loads(self.request.body)    # should not be needed!
         return JsonResponse({
-            'predicted': models.predict(request.data),
+            'predicted': models.predict(data),
         }, status=200)

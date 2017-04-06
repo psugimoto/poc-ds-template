@@ -13,6 +13,20 @@ TARGETS = {
 }
 
 
+def train():
+    global trainer
+    trainer.train()
+    return True
+
+
+def save_model():
+    global trainer
+    if trainer.model is None:
+        trainer.train()
+    trainer.save()
+    return True
+
+
 def load_model():
     global model, trainer
     try:
