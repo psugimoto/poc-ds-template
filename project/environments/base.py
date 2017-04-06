@@ -36,7 +36,7 @@ ALLOWED_HOSTS = ['.localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     # Django-included batteries
-    'django.contrib.contenttypes',
+    #'django.contrib.contenttypes',
     'django.contrib.staticfiles',
     #'django.contrib.gis',
 
@@ -44,14 +44,14 @@ INSTALLED_APPS = [
     'django_extensions',
 
     # Project-specific:
-    #'webapp',
+    'iris',
 ]
 
 MIDDLEWARE_CLASSES = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'lancero.django.middleware.ConsoleTracebackMiddleware',
+    #'django.middleware.security.SecurityMiddleware',
+    #'django.middleware.common.CommonMiddleware',
+    #'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'lancero.django.middleware.ConsoleTracebackMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
