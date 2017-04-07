@@ -25,7 +25,7 @@ def load(request, *args, **kwargs):
 
 
 class EvaluateView(View):
-    def post(self, *args, **kwargs):
+    def get(self, *args, **kwargs):
         valuation = models.evaluate()
         if valuation is None:
             return JsonResponse({
