@@ -1,9 +1,9 @@
 from django.core.management.base import BaseCommand
 
-from iris import models
+from mlapp import models
 
 class Command(BaseCommand):
-    help = "Train the IRIS classifier."
+    help = "Train the Machine Learning Model."
 
     def handle(self, *args, **options):
         print('Training a model.')

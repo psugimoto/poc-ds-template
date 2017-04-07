@@ -16,11 +16,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 
-from iris import views as iris_views
+from mlapp import views as mlapp_views
 
 
 urlpatterns = [
-    url(r'load$', iris_views.load),
-    url(r'predict$', iris_views.PredictView.as_view()),
-    url(r'evaluate$', iris_views.EvaluateView.as_view()),
+    url(r'load$', mlapp_views.load),
+    url(r'predict$', mlapp_views.PredictView.as_view()),
+    url(r'evaluate$', mlapp_views.EvaluateView.as_view()),
 ]

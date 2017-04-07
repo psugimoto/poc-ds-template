@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django_extensions',
 
     # Project-specific:
-    'iris',
+    'mlapp',
 ]
 
 MIDDLEWARE_CLASSES = [

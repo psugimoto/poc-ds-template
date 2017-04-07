@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 
-from iris import views as iris_views
+from mlapp import views as mlapp_views
 
 
 urlpatterns = [
-    url(r'^', include('iris.urls')),
+    url(r'^', include('mlapp.urls')),
 ]
