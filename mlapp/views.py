@@ -40,7 +40,7 @@ class PredictView(View):
         if models.model is None:
             models.load_model()
 
-        data = json.loads(self.request.body)    # should not be needed!
+        data = self.request.POST.dict()    # should not be needed!
         return JsonResponse({
             'predicted': models.predict(data),
         }, status=200)
