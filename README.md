@@ -1,6 +1,6 @@
 # GetNinjas Datascience Template - FLASK based
 
-Estrutura recomendada para projetos de datascience em Python, quando usando Flask. Há uma versão para Django também, no branch **``django``**.
+Estrutura recomendada para projetos de datascience em Python, quando usando Django.
 
 ## Estrutura do projeto:
 
@@ -22,7 +22,7 @@ $ docker-compose run --rm shell   # Shell Linux na pasta do projeto.
 
 ## Instalação do ambiente de desenvolvimento
 
-Este é um projeto escrito com Flask, para Python 3, mantendo compatibilidade com Python 2 se possível.
+Este é um projeto escrito para em Django, para Python 3 e com estrutura fortemente influenciada por [12-Factor App](https://12factor.net/pt_br/) e ~~com coisas que o Rails faz direito e o Django não~~ partes do Rails.
 
 Ele também utiliza módulos em C que necessitam de dependências do sistema operacional. Se estiver no Ubuntu, instale estes pacotes aqui:
 

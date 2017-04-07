@@ -5,7 +5,6 @@ from sklearn.externals import joblib
 
 
 class Trainer:
-
     def __init__(self, model=None):
         iris = datasets.load_iris()
 

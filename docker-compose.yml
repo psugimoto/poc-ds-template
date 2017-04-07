@@ -9,6 +9,12 @@ services:
     ports:
       - '8080:8080'
 
+  train:
+    build: ./
+    working_dir: /app
+    environment:
+      - PROCESS_TYPE=train
+
   test:
     build: ./
     working_dir: /app
