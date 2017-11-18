@@ -1,4 +1,4 @@
-# GetNinjas Datascience Template - FLASK based
+# Datascience Template - FLASK based
 
 Estrutura recomendada para projetos de datascience em Python, quando usando Django.
 
